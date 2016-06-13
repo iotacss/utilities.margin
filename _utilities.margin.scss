@@ -12,9 +12,10 @@
 
 // Options
 
-$iota-margin         : true;
-$iota-margin-default : 10px !default;
-$iota-margin-extra   : () !default;
+$iota-margin          : true;
+$iota-margin-default  : 10px !default;
+$iota-margin-extra    : () !default;
+$iota-margin--res     : false !default;
 
 
 
@@ -30,14 +31,51 @@ $iota-margin-extra   : () !default;
 
 
 
-@each $name, $size in $iota-margin-extra {
+@each $marginName, $marginSize in $iota-margin-extra {
 
-  .#{$iota-utility-namespace}m#{$name}   { margin        : $size !important; }
-  .#{$iota-utility-namespace}mt#{$name}  { margin-top    : $size !important; }
-  .#{$iota-utility-namespace}mr#{$name}  { margin-right  : $size !important; }
-  .#{$iota-utility-namespace}mb#{$name}  { margin-bottom : $size !important; }
-  .#{$iota-utility-namespace}ml#{$name}  { margin-left   : $size !important; }
-  .#{$iota-utility-namespace}mv#{$name}  { margin-top    : $size !important; margin-bottom : $size !important; }
-  .#{$iota-utility-namespace}mh#{$name}  { margin-right  : $size !important; margin-left   : $size !important; }
+  .#{$iota-utility-namespace}m#{$marginName}   { margin        : $marginSize !important; }
+  .#{$iota-utility-namespace}mt#{$marginName}  { margin-top    : $marginSize !important; }
+  .#{$iota-utility-namespace}mr#{$marginName}  { margin-right  : $marginSize !important; }
+  .#{$iota-utility-namespace}mb#{$marginName}  { margin-bottom : $marginSize !important; }
+  .#{$iota-utility-namespace}ml#{$marginName}  { margin-left   : $marginSize !important; }
+  .#{$iota-utility-namespace}mv#{$marginName}  { margin-top    : $marginSize !important; margin-bottom : $marginSize !important; }
+  .#{$iota-utility-namespace}mh#{$marginName}  { margin-right  : $marginSize !important; margin-left   : $marginSize !important; }
 
+}
+
+
+
+
+// Responsive Text Utilities
+
+@if ($iota-margin--res == true) {
+  
+  @each $breakpointName, $breakpointSize in $iota-breakpoint-sizes {
+    
+    @media #{$breakpointSize} {
+     
+      .#{$iota-utility-namespace}m\@#{$breakpointName}   { margin        : $iota-margin-default !important; }
+      .#{$iota-utility-namespace}mt\@#{$breakpointName}  { margin-top    : $iota-margin-default !important; }
+      .#{$iota-utility-namespace}mr\@#{$breakpointName}  { margin-right  : $iota-margin-default !important; }
+      .#{$iota-utility-namespace}mb\@#{$breakpointName}  { margin-bottom : $iota-margin-default !important; }
+      .#{$iota-utility-namespace}ml\@#{$breakpointName}  { margin-left   : $iota-margin-default !important; }
+      .#{$iota-utility-namespace}mv\@#{$breakpointName}  { margin-top    : $iota-margin-default !important; margin-bottom : $iota-margin-default !important; }
+      .#{$iota-utility-namespace}mh\@#{$breakpointName}  { margin-right  : $iota-margin-default !important; margin-left   : $iota-margin-default !important; } 
+      
+      @each $marginName, $marginSize in $iota-margin-extra {
+
+        .#{$iota-utility-namespace}m#{$marginName}\@#{$breakpointName}   { margin        : $marginSize !important; }
+        .#{$iota-utility-namespace}mt#{$marginName}\@#{$breakpointName}  { margin-top    : $marginSize !important; }
+        .#{$iota-utility-namespace}mr#{$marginName}\@#{$breakpointName}  { margin-right  : $marginSize !important; }
+        .#{$iota-utility-namespace}mb#{$marginName}\@#{$breakpointName}  { margin-bottom : $marginSize !important; }
+        .#{$iota-utility-namespace}ml#{$marginName}\@#{$breakpointName}  { margin-left   : $marginSize !important; }
+        .#{$iota-utility-namespace}mv#{$marginName}\@#{$breakpointName}  { margin-top    : $marginSize !important; margin-bottom : $marginSize !important; }
+        .#{$iota-utility-namespace}mh#{$marginName}\@#{$breakpointName}  { margin-right  : $marginSize !important; margin-left   : $marginSize !important; }
+
+      }
+      
+    }
+    
+  }
+  
 }
