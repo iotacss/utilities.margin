@@ -20,6 +20,7 @@ npm install --save iotacss-margin
 ```
 $iota-margin-default : 10px !default;
 $iota-margin-extra   : () !default;
+$iota-margin--res    : false !default;
 ```
 
 
@@ -33,3 +34,8 @@ $iota-margin-extra   : () !default;
 .u-ml
 .u-mv
 .u-mh
+
+
+// Responsive Class Syntax
+
+.u-[name]@[breakpoint-name]  // Example: .u-m@sm
