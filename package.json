@@ -1,6 +1,6 @@
 {
   "name": "iotacss-utils-margin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Margin utility for iotaCSS",
   "main": "_utilities.margin.scss",
   "repository": {
