@@ -24,41 +24,17 @@ $iota-utils-margin-breakpoints          : $iota-global-breakpoints !default;
 
 
 
-// Margin Utilities
-
-@include _iota-utility-generate-spacing(
-  'margin',
-  $iota-utils-margin-default
+@include _iota-generate-spacing(
+  margin,
+  $iota-utils-margin-default,
+  $iota-utils-margin-extra,
+  $iota-utils-margin-namespace,
+  $iota-utils-margin-top-name,
+  $iota-utils-margin-right-name,
+  $iota-utils-margin-bottom-name,
+  $iota-utils-margin-left-name,
+  $iota-utils-margin-vertical-name,
+  $iota-utils-margin-horizontal-name,
+  $iota-utils-margin-res,
+  $iota-utils-margin-breakpoints
 );
-
-@each $margin-name, $margin-size in $iota-utils-margin-extra {
-  @include _iota-utility-generate-spacing(
-    'margin',
-    $margin-size,
-    $margin-name
-  );
-}
-
-
-
-
-// Margin Responsive Utilities
-
-@if ($iota-utils-margin-res == true) {
-
-  @include _iota-utility-generate-responsive-spacing(
-    'margin',
-    $iota-utils-margin-breakpoints,
-    $iota-utils-margin-default
-  );
-
-  @each $margin-name, $margin-size in $iota-utils-margin-extra {
-    @include _iota-utility-generate-responsive-spacing(
-      'margin',
-      $iota-utils-margin-breakpoints,
-      $margin-size,
-      $margin-name
-  );
-  }
-
-}
